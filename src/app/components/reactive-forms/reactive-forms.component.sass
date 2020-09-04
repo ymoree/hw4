@@ -1,0 +1,49 @@
+section
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  width: 80%
+  margin: 100px auto
+  h1
+    margin-bottom: 19px
+  form
+    width: 400px
+    padding: 30px
+    border-radius: 30px
+    box-shadow: 0 0 20px #000000a1
+    .warning
+      padding: 3px 12px
+  .text
+    width: 60%
+    margin-top: 80px
+  .success
+    border: 1px solid green
+    box-shadow: 0 0 2px #007519a1
+  .input
+    width: 80%
+    display: inline
+    border-bottom-right-radius: 0
+    border-top-right-radius: 0
+  .button
+    border-bottom-left-radius: 0
+    border-top-left-radius: 0
+    margin-bottom: 6px
+
+
+@media screen and (max-width: 1440px)
+  section
+    display: flex
+    flex-direction: column
+    div
+      h1
+        text-align: center
+    form
+      margin: 0 auto
+    .text
+      width: 100%
+
+@media screen and (max-width: 482px)
+  section
+    form
+      width: 100%
+

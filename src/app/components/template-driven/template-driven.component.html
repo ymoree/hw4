@@ -1,0 +1,54 @@
+<section>
+  <div>
+    <h1>Template driven form</h1>
+    <form #Form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="name@example.com" class="form-control"
+               [class.success]="email.valid"
+               #email="ngModel"
+               ngModel
+               required
+               email>
+        <div *ngIf="email.errors?.required && !email.untouched"
+             class="warning alert alert-danger">>Please, input your email
+        </div>
+        <div *ngIf="email.errors?.email && !email.untouched"
+             class="warning alert alert-danger">>Email is incorrect
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control"
+               #password="ngModel"
+               [class.success]="password.valid"
+               ngModel
+               required
+               minlength="7"
+               maxlength="25">
+        <div *ngIf="password.errors?.required && !password.untouched"
+             class="warning alert alert-danger">>Please, input your password
+        </div>
+        <div *ngIf="password.errors?.minlength && !password.untouched"
+             class="warning alert alert-danger">>Password is too short
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="Form.invalid">Submit</button>
+    </form>
+  </div>
+  <div class="text">
+    <p><span style="color: red; font-size: 25px">A</span>ngular 1 tackles forms via the famous ng-model directive (read more about it in this post).
+      The instantaneous two-way data binding of ng-model in Angular 1 is really a life-saver as it allows to
+      transparently keep in sync a form with a view model.
+      Forms built with this directive can only be tested in an end to end test because this requires the presence of a
+      DOM, but still, this mechanism is very useful and simple to understand.
+      Angular now provides an identical mechanism named also ngModel, that allow us to build what is now called
+      Template-Driven forms.
+      There is actually quite a lot going on in this simple example. What we have done here is to declare a simple form
+      with two controls: first name and password, both of which are mandatory fields (marked with the required
+      attribute).
+      The form will trigger the controller method onSubmitTemplateBased on submission, but the submit button is only
+      enabled if both required fields are filled in.
+      But that is only a small part of what is going on here.</p>
+  </div>
+</section>

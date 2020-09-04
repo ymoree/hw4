@@ -1,0 +1,26 @@
+footer
+  width: 100%
+  height: 100px
+  background: #000
+  border-top: 1.5px solid #df2335
+
+  .info
+    height: 100px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    color: #df2335
+    .info-right
+      span:first-child
+        margin-right: 15px
+
+@media screen and (max-width: 768px)
+  footer
+    .info
+      font-size: 11px
+      .info-right
+        display: flex
+        flex-direction: column
+
+

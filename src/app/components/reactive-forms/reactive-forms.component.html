@@ -1,0 +1,101 @@
+<section>
+  <div>
+    <h1>Reactive form</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="name" name="name" placeholder="Your name..." class="form-control" formControlName="name"
+               [class.success]="!nameIsInvalid && !this.name.untouched">
+        <div *ngIf="nameIsInvalid">
+          <div *ngIf="name.hasError('required')" class="alert alert-danger">Please, input your name</div>
+          <div *ngIf="name.hasError('maxlength')" class="alert alert-danger">Name shouldn't be longer than 20 characters</div>
+          <div *ngIf="name.hasError('minlength')" class="alert alert-danger">Name should be longer than 2 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" formControlName="password"
+               [class.success]="!passwordIsInvalid && !this.name.untouched">
+        <div *ngIf="passwordIsInvalid">
+          <div *ngIf="password.hasError('required')" class="alert alert-danger">Please, input your password</div>
+          <div *ngIf="password.getError('invalidPassword')" class="alert alert-danger"> {{password.getError('invalidPassword')}}</div>
+        </div>
+      </div>
+
+
+      <div class="form-group" formArrayName="emails">
+        <label>Email</label>
+        <div
+          *ngFor="let email of emailsArray.controls; let i = index">
+          <div>
+            <input [formControlName]="i"
+                   [class.success]="!emailIsInvalid"
+                   [placeholder]="'name@example.com'"
+                   autocomplete="email"
+                   class="form-control input"
+                   id="email"
+                   type="email"/>
+            <button (click)="removeEmail(i)"
+                    class="btn btn-danger button"
+                    type="button">X
+            </button>
+            <div *ngIf="emailIsInvalid(i)" class="alert alert-danger">Please, input your correct email</div>
+          </div>
+        </div>
+        <button (click)="addEmail()"
+                class="btn btn-danger"
+                type="button">Add field
+        </button>
+
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="text">
+    <p><span style="color: red; font-size: 25px">R</span>eactive forms via the famous ng-model directive (read more
+      about it in this post).
+      The instantaneous two-way data binding of ng-model in Angular 1 is really a life-saver as it allows to
+      transparently keep in sync a form with a view model.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eum ipsa laudantium quisquam reiciendis
+      repudiandae tempore! Ab accusantium ad alias at aut blanditiis distinctio est eum hic illum impedit ipsa iure
+      laudantium mollitia neque pariatur perspiciatis, quis quo rem reprehenderit sequi similique tempora ullam unde vel
+      velit voluptate voluptatem voluptates!
+      The form will trigger the controller method onSubmitTemplateBased on submission, but the submit button is only
+      enabled if both required fields are filled in.
+      But that is only a small part of what is going on here. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Ad, atque aut consequatur debitis eius error illo impedit, incidunt iste maxime nulla, porro possimus quibusdam
+      quo quod quos repellendus saepe vitae!</p>
+  </div>
+</section>

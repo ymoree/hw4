@@ -1,0 +1,65 @@
+$textColor: #fff
+$bgColor: #000
+$hoverColor: #df2335
+
+
+header
+  height: 67px
+  position: fixed
+  width: 100%
+  top: 0
+  left: 0
+  background: $bgColor
+  z-index: 11
+  .wrapper
+    height: 100%
+    border-right: 1px solid $hoverColor
+  nav
+    display: flex
+    flex-direction: row
+    align-items: center
+    position: relative
+    .logo
+      margin-top: -12px
+      img
+        width: 49px
+  ul
+    display: flex
+    flex-direction: row
+    list-style-type: none
+    margin-top: 4px
+    li
+      padding: 17px 7px
+      a
+        font-size: 14px
+        font-weight: 600
+        text-transform: uppercase
+        color: $textColor
+        padding: 5px 10px
+        &:hover
+          color: $hoverColor
+
+
+
+
+@media screen and (max-width: 1440px)
+  li
+    a
+      font-size: 12px !important
+
+
+@media screen and (max-width: 768px)
+  li
+    a
+      font-size: 11px !important
+      padding: 5px 5px
+
+
+@media screen and (max-width: 485px)
+  ul
+    li
+      a
+        display: none
+  .logo
+    margin-top: 8px !important
+
